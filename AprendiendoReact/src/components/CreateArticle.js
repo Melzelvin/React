@@ -78,7 +78,7 @@ class CreateArticle extends Component {
 							this.state.selectedFile, //EL fichero que quiero subir
 							this.state.selectedFile.name //Con que nombre lo quiero enviar 'name(nombre del archivo que voy a subir al servidor)'
 						);
-						//Peticion Ajax
+						//Peticion GET
 						axios
 							.post(this.url + 'upload-image/' + articleId, formData) //formdata son los datos que yo quiero guardar
 							.then(res => {
@@ -98,7 +98,7 @@ class CreateArticle extends Component {
 								}
 							});
 					}
-					this.props.history.push('/home');
+					this.props.history.push('/blog');
 				} else {
 					this.setState({
 						status: 'failed',
@@ -126,7 +126,6 @@ class CreateArticle extends Component {
 		if (this.state.status === 'success') {
 			return <Redirect to='/blog' />;
 		}
-
 		return (
 			<div className='center'>
 				<section id='content'>
